@@ -1,4 +1,4 @@
-# takes 379 seconds
+# takes ??? seconds
 print "Setting the working directory"
 import os
 work_dir = os.path.dirname(os.path.realpath(__file__)) # This method returns the directry path of this script.
@@ -19,17 +19,16 @@ def main():
     try:
         # Setting input and output
         url = "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_rivers_lake_centerlines_scale_rank.zip"
-        # url = "https://www.naturalearthdata.com/download/10m/physical/ne_10m_rivers_lake_centerlines_scale_rank.zip"
             # Linked from https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-rivers-lake-centerlines/
         downloaded_zip = "../temp/" + "rivers.zip"
         # Process
-        # download_data(url, downloaded_zip)
+        download_data(url, downloaded_zip)
 
         print "Extract all files" # Extracting only necessary files (the .extract() function) does not work. So we extract all and then delete those unnecessary.
         # Setting input and output
         input_zip = downloaded_zip
         outdir = "../temp/"
-        # uncompress_zip(input_zip, outdir)
+        uncompress_zip(input_zip, outdir)
 
         print "Moving unzipped files to relevant folders"
         for file in os.listdir(outdir):
